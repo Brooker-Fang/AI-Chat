@@ -1,0 +1,45 @@
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.avatarLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.messageWrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.messageBubble {
+  max-width: 80%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.userMessage {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #60a5fa;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
+}
+
+.aiMessage {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.messageText {
+  margin: 0;
+  font-size: 0.875rem;
+}
