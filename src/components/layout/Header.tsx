@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import styles from './Header.module.css'
 import { LoginModal } from '@/components/auth/LoginModal'
 
 interface User {
@@ -34,29 +33,29 @@ export function Header({ user, onUserChange }: HeaderProps) {
 
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.headerContainer}>
-          <div className={styles.logoSection}>
-            <div className={styles.logoIcon}>
-              <span className={styles.logoText}>AI</span>
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+              <span className="text-white font-bold text-lg">AI</span>
             </div>
-            <h1 className={styles.title}>AI聊天助手</h1>
+            <h1 className="text-xl font-semibold text-gray-900">AI聊天助手</h1>
           </div>
 
-          <div className={styles.userSection}>
+          <div className="flex items-center gap-4">
             {user ? (
-              <div className={styles.userInfo}>
-                <div className={styles.credits}>
+              <div className="flex items-center gap-3">
+                <div className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
                   积分: 100
                 </div>
-                <div className={styles.avatar}>
-                  <span className={styles.avatarText}>
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-medium">
                     {user.email?.charAt(0).toUpperCase()}
                   </span>
                 </div>
                 <button
                   onClick={handleSignOut}
-                  className={styles.signOutButton}
+                  className="bg-transparent border-none text-gray-600 text-sm px-3 py-2 rounded-md cursor-pointer transition-colors hover:text-gray-900"
                 >
                   退出
                 </button>
@@ -64,7 +63,7 @@ export function Header({ user, onUserChange }: HeaderProps) {
             ) : (
               <button 
                 onClick={() => setShowLoginModal(true)} 
-                className={styles.loginButton}
+                className="bg-blue-500 text-white border-none px-6 py-2 rounded-lg font-medium cursor-pointer transition-colors hover:bg-blue-600"
               >
                 登录
               </button>

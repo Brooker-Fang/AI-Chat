@@ -143,12 +143,14 @@ export function ChatContainer() {
           <ChatMessage key={index} message={message} />
         ))}
         {isLoading && (
-          <div className="flex items-end gap-2 mb-3">
-            <div className="w-6 h-6 rounded-full bg-gray-400 text-white flex items-center justify-center text-xs font-medium flex-shrink-0 mb-0.5">
+          <div className="flex items-start gap-2 mb-3">
+            <div className="w-6 h-6 rounded-full bg-gray-400 text-white flex items-center justify-center text-xs font-medium flex-shrink-0 mt-0.5">
               AI
             </div>
             <div className="max-w-xs">
-              <div className="bg-gray-100 text-gray-800 px-4 py-2.5 rounded-2xl rounded-bl-md">
+              <div className="relative bg-gray-100 text-gray-800 px-4 py-2.5 rounded-2xl">
+                {/* 尖角指向头像 */}
+                <div className="absolute -left-1 top-2 w-0 h-0 border-r-8 border-r-gray-100 border-t-8 border-t-transparent border-b-8 border-b-transparent"></div>
                 <div className="flex space-x-1">
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>

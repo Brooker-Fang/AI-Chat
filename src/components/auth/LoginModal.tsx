@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import styles from './LoginModal.module.css'
 
 interface User {
   id: string
@@ -66,16 +65,16 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
   if (!isOpen) return null;
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={onClose}>
+      <div className="bg-white rounded-lg shadow-2xl w-full max-w-md m-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="px-6 pt-6">
+          <h2 className="text-center text-xl font-semibold m-0 text-gray-900">
             登录到AI聊天助手
           </h2>
         </div>
         
-        <div className={styles.content}>
-          <p className={styles.description}>
+        <div className="p-6 flex flex-col gap-4">
+          <p className="text-sm text-gray-600 text-center m-0">
             登录后可以保存聊天记录，获得积分奖励，并解锁更多功能。
           </p>
           
@@ -83,9 +82,9 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
           <button
             onClick={handleGoogleLogin}
             disabled={isLoading}
-            className={styles.googleButton}
+            className="w-full bg-white text-gray-900 border border-gray-300 font-medium p-3 rounded-md flex items-center justify-center cursor-pointer transition-colors hover:bg-gray-50 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            <svg className={styles.googleIcon} viewBox="0 0 24 24">
+            <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
               <path
                 fill="#4285F4"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -107,34 +106,34 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
           </button>
           
           {/* 分割线 */}
-          <div className={styles.divider}>
-            <div className={styles.dividerLine}>
-              <span className={styles.dividerBorder} />
+          <div className="relative my-2">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-gray-300" />
             </div>
-            <div className={styles.dividerText}>
-              <span className={styles.dividerLabel}>或</span>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-white px-2 text-gray-500">或</span>
             </div>
           </div>
           
           {/* 邮箱登录 */}
-          <div className={styles.emailSection}>
+          <div className="flex flex-col gap-3">
             <input
               type="email"
               placeholder="输入您的邮箱地址"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={styles.emailInput}
+              className="w-full p-3 border border-gray-300 rounded-md text-sm outline-none transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
             />
             <button
               onClick={handleEmailLogin}
               disabled={isLoading || !email.trim()}
-              className={styles.emailButton}
+              className="w-full bg-blue-500 text-white border-none font-medium p-3 rounded-md cursor-pointer transition-colors hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               {isLoading ? '登录中...' : '使用邮箱登录'}
             </button>
           </div>
           
-          <p className={styles.terms}>
+          <p className="text-xs text-gray-500 text-center m-0">
             登录即表示您同意我们的服务条款和隐私政策
           </p>
         </div>
