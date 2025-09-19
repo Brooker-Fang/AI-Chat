@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'AI聊天助手',
   description: '一个简洁、高效的AI聊天界面',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
